@@ -21,4 +21,3 @@ To resolve this problem **quickly**, a known approach is to implement a Kd-Tree,
 - Experimental Design
 - Results presentation
 - Analysis and interpretation of the results
-
