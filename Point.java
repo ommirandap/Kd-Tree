@@ -27,4 +27,12 @@ public class Point {
 	public void setY(double y){
 		this.y = y;
 	}
+
+	public double distanceTo(Point p2){
+		double aux1 = Math.abs(this.x - p2.getX());
+		double aux2 = Math.abs(this.y - p2.getY());
+		return Math.sqrt(aux1*aux1 + aux2*aux2);
+	}
+
+
 }
