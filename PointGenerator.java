@@ -12,8 +12,8 @@ public abstract class PointGenerator {
         this.c = Math.random();
     	// [0, 1) ... falta el 1...
     	this.size = (int) Math.pow(2, i);
-        this.max_range = Math.random()*(c*Math.pow(2,0.5*i));
-        // [0, c*sqrt(i)]		
+        this.max_range = c*Math.pow(2,0.5*i);
+        // [min_range, max_range] => [0, c*sqrt(i)]		
     }
 
     abstract public Point [] generateInstance();

@@ -4,7 +4,7 @@ public class Testest {
     static public void main(String []args){
 
         PointGenerator GI;
-        GI = new RandomPointGenerator(10);
+        GI = new RandomPointGenerator(20);
 
 		Point DATA[];
         DATA = GI.generateInstance();

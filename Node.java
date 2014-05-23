@@ -4,16 +4,28 @@ public class Node {
 	public Node left;
 	public Node right;
 	public Boolean isLeaf;
-	public Line line;
-	public Point p;
+	public Point point;
+	public double axisValue;
+	public boolean axisX;
+	// TRUE -> EJE X ... FALSE -> EJE Y
 
-	public Node(Node l, Node r, Point p, Line line){
+	public Node(){
+		this.left = null;
+		this.right = null;
+		this.isLeaf = true;
+		this.point = null;
+		this.axisValue = 0;
+		this.axisX = false;
+	}
+
+	public Node(Node l, Node r, double axisValue, Boolean axisX){
 		this.left = l;
 		this.right = r;
-		this.p = p;
-		this.line = line;
+		this.isLeaf = false;
+		this.axisValue = axisValue;
+		this.axisX = axisX;
 	}
-	
+
 	public Node(Point p){
 		this.p = p;
 		this.left = null;
@@ -26,6 +38,22 @@ public class Node {
 		this.isLeaf = false;
 		this.line = null;
 		this.p = null;
+	}
+
+	public boolean isXaxis(){
+		return axis.getX() < 0;
+	}
+
+	public boolean isYAxis(){
+		return axis.getY() < 0;
+	}
+
+	public void setAxisAsX(){
+		this.axis = new Point(-1, 0);
+	}
+
+	public void setAxisAsY(){
+		this.axis = new Point(0, -1);
 	}
 
 	public void setLeft(Node l){
