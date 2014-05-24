@@ -2,10 +2,23 @@
 public class Point {
 	
 	public double x, y;
+	public int index;
 
 	public Point(double x, double y){
 		this.x = x;
 		this.y = y;
+	}
+
+	public Point(Point toCopy){
+		this.x = toCopy.x;
+		this.y = toCopy.y;
+		this.index = toCopy.index;
+	}
+
+	public Point(double x, double y, int index){
+		this.x = x;
+		this.y = y;
+		this.index = index;		
 	}
 	
 	public double getX(){
@@ -16,8 +29,12 @@ public class Point {
 		return this.y;
 	}
 
+	public int getIndex(){
+		return this.index;
+	}
+
 	public String toString(){
-		return "(".concat(this.x + ", " + this.y+")");
+		return "(".concat(this.x + ", " + this.y+") -> i ="+this.index);
 	}
 
 	public void setX(double x){

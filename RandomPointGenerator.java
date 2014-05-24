@@ -12,10 +12,10 @@ public class RandomPointGenerator extends PointGenerator {
 		
         result = new Point[size];
 
-        for(int i = 0; i < size; i++){
+        for(int index = 0; index < size; index++){
             double x = (Math.random())*(max_range);
             double y = (Math.random())*(max_range);
-            result[i] = new Point(x,y);
+            result[index] = new Point(x,y, index);
         }
 
         return result;
