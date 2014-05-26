@@ -11,6 +11,8 @@ To resolve this problem **quickly**, a known approach is to implement a Kd-Tree,
 
 ### Methodology
 - [ ] Implement the Kd-Tree
+	- Build
+	- NN Queries
 - [ ] Implement the analysis instance (for internal memory)
 - [ ] Run the experiments for internal memory
 - [ ] Implement the analysis instance (for external memory)
