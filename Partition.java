@@ -92,14 +92,14 @@ public class Partition {
 	    }
 	}
 
-	static public int[] meanPartition(boolean axis){
+	static public int[] meanPartition(int indexInput[], boolean axis){
 
 		int []result;
 
-		if(axis){
-			// EJE X
-			int indexMin = X_OrderedPoints[0];
-			int indexMax = X_OrderedPoints[X_OrderedPoints.length - 1];
+		if(!axis){
+			// EJE Y en boolean -> divido con eje X
+			int indexMin = indexInput[0];
+			int indexMax = indexInput[indexInput.length - 1];
 			double divideLine = (SetPoints[indexMax].getX() + SetPoints[indexMin].getX()) / 2;
 			int volatileSize = 0;
 			for(int i=0; i < X_OrderedPoints.length; i++){
@@ -114,9 +114,9 @@ public class Partition {
 		}
 
 		else{
-			// EJE Y
-			int coordYMin = Y_OrderedPoints[0].getY();
-			int coordYMax = Y_OrderedPoints[Y_OrderedPoints.length - 1].getY();
+			// EJE X en boolean -> divido con eje Y
+			int indexMin = indexInput[0];
+			int indexMax = indexInput[indexInput.length - 1];
 			double divideLine = (SetPoints[indexMax].getY() + SetPoints[indexMin].getY()) / 2;
 			int volatileSize = 0;
 			for(int i=0; i < Y_OrderedPoints.length; i++){
@@ -135,19 +135,23 @@ public class Partition {
 
 	static public void main(String []args){
 
-        GI = new RandomPointGenerator(20);
+        GI = new RandomPointGenerator(3);
 		SetPoints = GI.generateInstance();
 
-		X_OrderedPoints = mySort(SetPoints, true);
-		Y_OrderedPoints = mySort(SetPoints, false);
+		X_OrderedPoints = mySort(SetPoints, false);
+		Y_OrderedPoints = mySort(SetPoints, true);
 		
 		int a[], b[];
+		int indexX[];
+		a = null;
+		indexX = new int[X_OrderedPoints.length];
 		
 		for(int i = 0; i < X_OrderedPoints.length; i++){
 			System.out.println(X_OrderedPoints[i].toString());
+			indexX[i] = X_OrderedPoints[i].getIndex();
 		}
 
-		a = meanPartition(true);
+		a = meanPartition(indexX,false);
 
 		for(int i =0; i<a.length; i++){
 			System.out.print(a[i]+" - ");
