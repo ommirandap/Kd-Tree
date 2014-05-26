@@ -92,6 +92,22 @@ public class Partition {
 	    }
 	}
 
+	static public int[] medianPartition(int indexInput[], boolean axis){
+		int []result;
+
+		if(!axis){
+			// K-particiones de 5 elementos
+			int n_particiones = Math.floor(indexInput.length / 5);
+			int medians[] = new int[n_particiones];
+			for(int i = 0; i < n_particiones; i++){
+				medians[i] = indexInput[2+5*i];
+			}
+
+		} else {
+
+		}
+	}
+
 	static public int[] meanPartition(int indexInput[], boolean axis){
 
 		int []result;
